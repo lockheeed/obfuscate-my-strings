@@ -36,4 +36,5 @@ namespace obfstr
 }
 
 
-#define OBFSTR(x) []() { constexpr auto encoded = obfstr::obfuscate<sizeof(x)>(x); return encoded; }().deobfuscate()
+#define ENCODE(x) []() { constexpr auto encoded = obfstr::obfuscate<sizeof(x)>(x); return encoded; }()
+#define OBFSTR(x) ENCODE(x).deobfuscate()
